@@ -14,4 +14,4 @@ $PROTOC \
     --js_out=import_style=commonjs:$OUT_DIR \
     --grpc_out=grpc_js:$OUT_DIR \
     --ts_out=service=grpc-node,mode=grpc-js:$TS_OUT_DIR \
-    example.proto
+    example.proto chain.proto

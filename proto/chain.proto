@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package chain;
+
+
+message TxReq {
+    string hash = 1;
+}
+
+message TxReply {
+    string hash = 1;
+}
+
+service Chain {
+    rpc getTx(TxReq) returns (TxReply) {}
+}
