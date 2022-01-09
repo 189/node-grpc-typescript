@@ -1,4 +1,15 @@
 {
-  "extends": "@tsconfig/node12/tsconfig.json",
-  "exclude": ["node_modules"]
+  "compilerOptions": {
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "declarationDir": "dist/types",
+    "outDir": "dist"
+  },
+  "include": ["types", "src"],
+  "exclude": ["node_modules", "./dist"]
 }

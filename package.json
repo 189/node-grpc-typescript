@@ -15,8 +15,8 @@
     "lint:eslint": "eslint . --ext .js,.ts",
     "lint:fix": "yarn run lint:fix:prettier && yarn run lint:eslint -- --fix",
     "lint:fix:prettier": "prettier --write '**/*.{ts,tsx,js,json,svg,md,yml}'",
-    "start:server": "node server",
-    "start:client": "node client"
+    "start:s": "node dist/server",
+    "start:c": "node dist/client"
   },
   "keywords": [],
   "author": "",
