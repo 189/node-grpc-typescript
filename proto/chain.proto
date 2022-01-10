@@ -2,15 +2,19 @@ syntax = "proto3";
 
 package chain;
 
-
 message TxReq {
     string hash = 1;
 }
 
+
 message TxReply {
-    string hash = 1;
+    string Hash = 1;
+    string BlockHash = 2;
+    int32 Shard = 3;
+    int32 Timestamp = 4;
+    string Address = 5;
 }
 
-service Chain {
+service kaas {
     rpc getTx(TxReq) returns (TxReply) {}
 }

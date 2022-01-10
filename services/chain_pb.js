@@ -221,7 +221,11 @@ proto.chain.TxReply.prototype.toObject = function(opt_includeInstance) {
  */
 proto.chain.TxReply.toObject = function(includeInstance, msg) {
   var f, obj = {
-    hash: jspb.Message.getFieldWithDefault(msg, 1, "")
+    hash: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    blockhash: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    shard: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    timestamp: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    address: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -262,6 +266,22 @@ proto.chain.TxReply.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setHash(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setBlockhash(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setShard(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTimestamp(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAddress(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -298,11 +318,39 @@ proto.chain.TxReply.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getBlockhash();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getShard();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getTimestamp();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
+  f = message.getAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
 };
 
 
 /**
- * optional string hash = 1;
+ * optional string Hash = 1;
  * @return {string}
  */
 proto.chain.TxReply.prototype.getHash = function() {
@@ -316,6 +364,78 @@ proto.chain.TxReply.prototype.getHash = function() {
  */
 proto.chain.TxReply.prototype.setHash = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string BlockHash = 2;
+ * @return {string}
+ */
+proto.chain.TxReply.prototype.getBlockhash = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.chain.TxReply} returns this
+ */
+proto.chain.TxReply.prototype.setBlockhash = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional int32 Shard = 3;
+ * @return {number}
+ */
+proto.chain.TxReply.prototype.getShard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.chain.TxReply} returns this
+ */
+proto.chain.TxReply.prototype.setShard = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional int32 Timestamp = 4;
+ * @return {number}
+ */
+proto.chain.TxReply.prototype.getTimestamp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.chain.TxReply} returns this
+ */
+proto.chain.TxReply.prototype.setTimestamp = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
+};
+
+
+/**
+ * optional string Address = 5;
+ * @return {string}
+ */
+proto.chain.TxReply.prototype.getAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.chain.TxReply} returns this
+ */
+proto.chain.TxReply.prototype.setAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

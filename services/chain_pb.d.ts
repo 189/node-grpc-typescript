@@ -27,6 +27,18 @@ export class TxReply extends jspb.Message {
   getHash(): string;
   setHash(value: string): void;
 
+  getBlockhash(): string;
+  setBlockhash(value: string): void;
+
+  getShard(): number;
+  setShard(value: number): void;
+
+  getTimestamp(): number;
+  setTimestamp(value: number): void;
+
+  getAddress(): string;
+  setAddress(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TxReply.AsObject;
   static toObject(includeInstance: boolean, msg: TxReply): TxReply.AsObject;
@@ -40,6 +52,10 @@ export class TxReply extends jspb.Message {
 export namespace TxReply {
   export type AsObject = {
     hash: string,
+    blockhash: string,
+    shard: number,
+    timestamp: number,
+    address: string,
   }
 }
 

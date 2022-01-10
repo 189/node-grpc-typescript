@@ -27,9 +27,9 @@ function deserialize_chain_TxReq(buffer_arg) {
 }
 
 
-var ChainService = exports.ChainService = {
+var kaasService = exports.kaasService = {
   getTx: {
-    path: '/chain.Chain/getTx',
+    path: '/chain.kaas/getTx',
     requestStream: false,
     responseStream: false,
     requestType: chain_pb.TxReq,
@@ -41,4 +41,4 @@ var ChainService = exports.ChainService = {
   },
 };
 
-exports.ChainClient = grpc.makeGenericClientConstructor(ChainService);
+exports.kaasClient = grpc.makeGenericClientConstructor(kaasService);
