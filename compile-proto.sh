@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 TS_OUT_DIR="./services"
-IN_DIR="./proto"
 OUT_DIR="./services"
+IN_DIR="./proto"
 PROTOC="$(npm bin)/grpc_tools_node_protoc"
 PROTOC_GEN_TS_PATH="$(npm bin)/protoc-gen-ts.cmd"
 PROTOC_GEN_GRPC_PATH="$(npm bin)/grpc_tools_node_protoc_plugin.cmd"

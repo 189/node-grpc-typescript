@@ -1,0 +1,6 @@
+{
+    "extends": "@duiyuan/eslint-config",
+    "rules": {
+      "@typescript-eslint/no-empty-function": "off",
+    }
+  }

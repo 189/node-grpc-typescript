@@ -5,7 +5,10 @@ import { ClientMessage, ServerMessage } from '../services/example_pb';
 const host = '0.0.0.0:9050';
 
 const exampleServer: IExampleServer = {
-  unaryCall( call: grpc.ServerUnaryCall<ClientMessage, ServerMessage>, callback: grpc.sendUnaryData<ServerMessage> ) {
+  unaryCall(
+    call: grpc.ServerUnaryCall<ClientMessage, ServerMessage>,
+    callback: grpc.sendUnaryData<ServerMessage>
+  ) {
     if (call.request) {
       console.log(
         `(server) Got client message: ${call.request.getClientMessage()}`
@@ -16,13 +19,17 @@ const exampleServer: IExampleServer = {
     callback(null, serverMessage);
   },
 
-  serverStreamingCall( call: grpc.ServerWritableStream<ClientMessage, ServerMessage> ) {
+  serverStreamingCall(
+    call: grpc.ServerWritableStream<ClientMessage, ServerMessage>
+  ) {
     const serverMessage = new ServerMessage();
     serverMessage.setServerMessage('Message from server');
     call.write(serverMessage);
   },
 
-  clientStreamingCall( call: grpc.ServerReadableStream<ClientMessage, ServerMessage> ) {
+  clientStreamingCall(
+    call: grpc.ServerReadableStream<ClientMessage, ServerMessage>
+  ) {
     call.on('data', (clientMessage: ClientMessage) => {
       console.log(
         `(server) Got client message: ${clientMessage.getClientMessage()}`
